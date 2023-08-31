@@ -1,0 +1,6 @@
+Elementy:
+Wagi
+Model rozpoznający
+Obróbka danych (wyjęcie z płaszczyzny kwadratu, przeskalowanie go do  28x28px. 
+UI (użytkownik rysuje)
+Ładowanie danych uczacych
