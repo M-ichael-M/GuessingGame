@@ -1,14 +1,15 @@
 #This is heart of program - AI model - it will be recognize prepare images from user
 import Constants
 
-pixels = Constants.width*Constants.height-1
+pixels = Constants.width*Constants.height
+elements = []
+
 class knownElements:
-    def __int__(self, weights, label):
-        self.weights = weights
+    def __init__(self, weights1_1, weights1_2, label):
+        self.weights1_1 = weights1_1
+        self.weights1_2 = weights1_2
         self.label = label
-        self.examples = 1
-
-
+        self.examples = 0
 
 def layer1_1(listPx, weights):
     result = 0
@@ -40,12 +41,14 @@ def layer1_3(listPx, full):
 def mod_wag1_1(new, old, examples):
     result = []
     for i in range(pixels):
-        result[i] = (new[i]/examples + old[i])
+        result.append((new[i]/examples + old[i]))
     return result
 
 def mod_wag1_2(new, old):
     result = []
     for i in range(pixels):
         if new[i] == 0:
-            result[i] = old[i]-Constants.lr_1_2
+            result.append(old[i]-Constants.lr_1_2)
+        else:
+            result.append(old[i]+Constants.lr_1_2)
     return result
